@@ -1,21 +1,28 @@
-<h2>My Heroes</h2>
-
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">Add</button>
+<div class="page-header">
+  <h1>My heroes</h1>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-    <span class="badge">{{hero.id}}</span>
-    <span>{{hero.name}}</span>
-    <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
+<form class="form-inline">
+  <div class="form-group">
+    <label>Hero name:</label>
+    <input class="form-control" #heroName>
+  </div>
+  <button type="button" class="btn btn-default" (click)="add(heroName.value); heroName.value=''">Add</button>
+</form>
+
+<br>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let hero of heroes" [class.active]="hero === selectedHero">
+    ID: {{hero.id}} / Name: {{hero.name}}
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" (click)="goToDetail(hero)">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <button type="button" class="btn btn-default" (click)="delete(hero)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
-</div>
