@@ -14,6 +14,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroListSortableFilterableComponent } from './hero-list-sortable-filterable/hero-list-sortable-filterable.component';
 import { FilterTablePipe } from './filter-table.pipe';
+import { OrderTablePipe } from './order-table.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilterTablePipe } from './filter-table.pipe';
     DashboardComponent,
     HeroSearchComponent,
     HeroListSortableFilterableComponent,
-    FilterTablePipe
+    FilterTablePipe,
+    OrderTablePipe
   ],
   imports: [
     BrowserModule,

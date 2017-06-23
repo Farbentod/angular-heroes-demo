@@ -13,6 +13,8 @@ export class HeroListSortableFilterableComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
   searchString: string;
+  sortString: string;
+  sortType: string;
 
   constructor(private router: Router, private heroService: HeroService) { }
 
@@ -27,5 +29,10 @@ export class HeroListSortableFilterableComponent implements OnInit {
   goToDetail(hero: Hero): void {
     this.selectedHero = hero;
     this.router.navigate(['/detail', this.selectedHero.id]);
+  }
+
+  orderTable(orderString: string) {
+    this.sortType = (this.sortType ==  "+") ? "-":"+";
+    this.sortString = orderString;
   }
 }
