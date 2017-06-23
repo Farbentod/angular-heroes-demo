@@ -6,6 +6,7 @@ import {
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroesComponent } from '../heroes/heroes.component';
+import {HeroListSortableFilterableComponent} from "../hero-list-sortable-filterable/hero-list-sortable-filterable.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: HeroDetailComponent
+  },
+  {
+    path: 'sortablelist',
+    component: HeroListSortableFilterableComponent
   }
 ];
 
