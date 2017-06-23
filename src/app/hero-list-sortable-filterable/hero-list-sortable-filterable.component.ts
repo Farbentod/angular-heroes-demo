@@ -11,6 +11,7 @@ import { HeroService } from '../hero.service';
 export class HeroListSortableFilterableComponent implements OnInit {
 
   heroes: Hero[];
+  selectedHero: Hero;
   searchString: string;
 
   constructor(private router: Router, private heroService: HeroService) { }
@@ -23,4 +24,8 @@ export class HeroListSortableFilterableComponent implements OnInit {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
+  goToDetail(hero: Hero): void {
+    this.selectedHero = hero;
+    this.router.navigate(['/detail', this.selectedHero.id]);
+  }
 }

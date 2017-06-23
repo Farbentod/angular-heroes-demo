@@ -12,7 +12,7 @@
     <th>ID</th>
     <th>Name</th>
   </tr>
-  <tr *ngFor="let hero of heroes | filterTable : searchString; let i = index">
+  <tr *ngFor="let hero of heroes | filterTable : searchString; let i = index" (click)="goToDetail(hero)">
     <td class="text-left">
       {{hero.id}}
     </td>
